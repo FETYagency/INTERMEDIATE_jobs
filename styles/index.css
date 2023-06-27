@@ -271,6 +271,9 @@ span,a{
     flex-wrap: wrap;
     row-gap: 1rem;
     column-gap: 1.5rem;
+
+    max-block-size: 128px;
+    overflow-y: auto;
 }
 
 @media(width<=700px){
@@ -280,6 +283,7 @@ span,a{
     }
     .jobs_listing{
         gap: 2.5rem;
+        padding-block: 10.75rem;
     }
     .job{
         position: relative;
@@ -310,6 +314,7 @@ span,a{
     .attrs{
         border-block-start: 2px solid var(--Dark-Grayish-Cyan);
         padding-block-start: 1rem;
+        justify-self: stretch;
     }
     .jobDesc{
 
