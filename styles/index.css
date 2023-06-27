@@ -1,0 +1,324 @@
+@import url(reset.css);
+@import url(vars.css);
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap');
+
+:root{
+    --FF: 'League Spartan';
+    --WGHT-BOLD: 700;
+    --WGHT-MED: 400;
+
+    font-size: 16px;    
+    
+}
+
+body{
+    background-color: var(--Light-Grayish-Cyan-Background);
+    font-family: var(--FF);
+}
+.BG_header{
+    max-inline-size: 1600px;
+    block-size: 156px;
+    background-color: var(--Desaturated-Dark-Cyan);
+    margin-inline: auto;
+}
+.pattern_header>img{
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+}
+
+span,a{
+    display: inline-block;
+}
+
+.wrapper{
+    inline-size: min(1440px, 98%);
+    margin-inline: auto;
+}
+.jobs_listing{
+    padding-block: 4.75rem;
+
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1.5rem;
+    
+    position: relative;
+}
+
+
+
+
+.job{
+    border-radius: 5px;
+    background: #FFF;
+    box-shadow: 0px 15px 20px -5px rgba(13, 113, 130, 0.15);
+    border-inline-start: 5px solid var(--Desaturated-Dark-Cyan);
+    overflow: hidden;
+    
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    gap: 1.5rem;
+    align-items: center;
+
+    padding-block: 2rem;
+    padding-inline: 2.5rem;
+    
+}
+.job.false{
+    border-inline-start: 5px solid transparent;
+}
+
+
+
+.image{
+    width: 88px;
+    height: 88px;
+    background: #000;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+
+.jobData>*{
+    margin-block-start: 9px;
+}
+.jobData>*:first-child{
+    margin-block-start: 0px;
+    
+}
+.jobHeader{
+    display: flex;
+    gap: 0.9375rem;
+    align-items: center;
+}
+.aboutJob{
+    display: flex;
+    gap: 8px;
+}
+.isNew,.isFeatured{
+    user-select: none;
+    color: #FFF;
+    font-size: .9375rem;
+    font-family: inherit;
+    font-weight: var(--WGHT-BOLD);
+    line-height: .9375rem;
+    letter-spacing: -0.108px;
+    text-transform: uppercase;
+
+    background-color: var(--Desaturated-Dark-Cyan);
+    padding-block: 7px 3px;
+    padding-inline: 8px;
+    border-radius: 12px;
+
+}
+.isFeatured{
+    background-color: var(--Very-Dark-Grayish-Cyan);
+}
+.isFeatured.false,.isNew.false{
+    display: none;
+}
+.corpName{
+    color: #5CA5A5;
+    font-size: 1.125rem;
+    font-weight: var(--WGHT-BOLD);
+}
+
+.jobName{
+    user-select: none;
+    text-decoration: none;
+    color: var(--Very-Dark-Grayish-Cyan);
+    font-size: 1.375rem;
+    font-weight: var(--WGHT-BOLD);
+    line-height: 1.5rem;
+    transition: color .3s ease;
+}
+.jobName:hover{
+    color: var(--Desaturated-Dark-Cyan);
+}
+
+.jobDesc{
+    display: flex;
+    align-items: center;
+    gap: 1.15625rem;
+    color: var(--Dark-Grayish-Cyan);
+    font-weight: var(--WGHT-MED);
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    letter-spacing: -0.138px;
+}
+
+.dot{
+    inline-size: 4px;
+    block-size: 4px;
+    border-radius: 50%;
+    background-color: currentColor;
+}
+
+
+
+.attrs{
+    user-select: none;
+    justify-self: end;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.1em;
+}
+.attr{
+    color: var(--Desaturated-Dark-Cyan);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: -0.123px;
+    background-color: var(--Light-Grayish-Cyan-Background);
+    padding-inline: 8px;
+    padding-block: 5px, 3px;
+    border-radius: 4px;
+    cursor: pointer;
+
+    transition: all .3s ease;
+}
+
+.attr:hover{
+    color: #fff;
+    background-color: var(--Desaturated-Dark-Cyan);
+}
+
+.filter{
+    border-radius: 5px;
+    background: #FFF;
+    box-shadow: 0px 15px 20px -5px rgba(13, 113, 130, 0.15);
+
+    padding-inline: 2.5rem;
+    padding-block: 1.25rem;
+
+    position: absolute;
+    inset-block: -36px auto;
+    inset-inline: 0;
+
+    display: flex;
+    justify-content: space-between;
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20px);
+
+    transition: transform .3s ease-in, opacity .3s ease-out;
+}
+
+.filter[data-show="hidden"]{
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20px);
+}
+.filter[data-show="visisble"]{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0px);
+}
+
+
+.attrFilted{
+    color: var(--Desaturated-Dark-Cyan);
+    font-size: 1rem;
+    font-weight: var(--WGHT-BOLD);
+    line-height: 1.5rem;
+    letter-spacing: -0.123px;
+
+    border-radius: 4px;
+    overflow: hidden;
+    background: rgba(92, 165, 165, 0.116);
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-inline-start: 8px;
+    inline-size: fit-content;
+
+    transition: all .3s ease;
+}
+    
+.remove:not(.isImg){
+    background-color: var(--Desaturated-Dark-Cyan);
+    display: grid;
+    place-items: center; 
+    cursor: pointer;
+    padding: 9px;
+}
+
+.remove:not(.isImg):hover{
+    background-color: var(--Very-Dark-Grayish-Cyan);
+}
+.clear{
+    appearance: none;
+    color: #5CA5A5;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: -0.123px;
+    text-decoration-line: none;
+
+    border: none;
+    background-color: transparent;
+
+    cursor: pointer;
+}
+.clear:hover{
+    text-decoration-line: underline;
+}
+.selected{
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 1rem;
+    column-gap: 1.5rem;
+}
+
+@media(width<=700px){
+
+    .wrapper{
+        inline-size: min(400px, 90%);
+    }
+    .jobs_listing{
+        gap: 2.5rem;
+    }
+    .job{
+        position: relative;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+
+        padding: 1.5rem;
+
+        overflow: visible;
+    }
+
+    .image{
+        display: block;
+        position: absolute;
+        inset-block: -24px auto;
+        inset-inline-start: 1.5rem;
+
+        
+        width: 48px;
+        height: 48px;
+    }
+    .jobData{
+        margin-block-start: 8px;
+    }
+    .jobHeader{
+        gap: 2rem;
+    }
+    .attrs{
+        border-block-start: 2px solid var(--Dark-Grayish-Cyan);
+        padding-block-start: 1rem;
+    }
+    .jobDesc{
+
+        gap: 9px;
+        
+    }
+    .selected{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+}
